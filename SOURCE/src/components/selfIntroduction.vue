@@ -5,7 +5,7 @@
       <v-card>
         <div class="d-flex flex-no-wrap justify-space-between">
           <v-avatar class="ma-3" size="125" rounded="0">
-            <v-img src="/head.jpg"></v-img>
+            <v-img src="showMySelf/dist/head.jpg"></v-img>
           </v-avatar>
           <div>
             <v-card-title class="text-h5" aria-label="簡克達"> 簡克達<br />Chien Ko Ta </v-card-title>

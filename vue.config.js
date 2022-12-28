@@ -11,7 +11,7 @@ module.exports = defineConfig({
       .tap((options) => {
         options["compilerOptions"] = {
           ...(options.compilerOptions || {}),
-          isCustomElement: (tag) => tag === "hgroup",
+          isCustomElement: (tag) => tag === "v-",
         };
         return options;
       });

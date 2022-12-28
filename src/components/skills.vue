@@ -2,57 +2,41 @@
   <v-expansion-panel>
     <v-expansion-panel-title>資訊技能</v-expansion-panel-title>
     <v-expansion-panel-text>
-      <v-expansion-panels>
-        <v-expansion-panel>
-          <v-expansion-panel-title>程式語言</v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <v-list>
-              <v-list-item v-for="item in programs" :key="item.title" :title="item.title">
-                <template v-slot:append>
-                  <v-badge v-if="item.skilled > 3" color="info" :content="item.skilled" inline></v-badge>
-                  <v-badge v-else color="warning" :content="item.skilled" inline></v-badge>
-                </template>
-              </v-list-item>
-            </v-list>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-title>框架</v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <v-list>
-              <v-list-item v-for="item in frameworks" :key="item.title" :title="item.title">
-                <template v-slot:append>
-                  <v-badge v-if="item.skilled > 3" color="info" :content="item.skilled" inline></v-badge>
-                  <v-badge v-else color="warning" :content="item.skilled" inline></v-badge> </template
-              ></v-list-item>
-            </v-list>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-title>伺服器</v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <v-list>
-              <v-list-item v-for="item in servers" :key="item.title" :title="item.title">
-                <template v-slot:append>
-                  <v-badge v-if="item.skilled > 3" color="info" :content="item.skilled" inline></v-badge>
-                  <v-badge v-else color="warning" :content="item.skilled" inline></v-badge> </template
-              ></v-list-item>
-            </v-list>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-title>資料庫</v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <v-list>
-              <v-list-item v-for="item in dbs" :key="item.title" :title="item.title">
-                <template v-slot:append>
-                  <v-badge v-if="item.skilled > 3" color="info" :content="item.skilled" inline></v-badge>
-                  <v-badge v-else color="warning" :content="item.skilled" inline></v-badge> </template
-              ></v-list-item>
-            </v-list>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-      </v-expansion-panels>
+      <v-badge color="red" :content="5" inline>精通</v-badge>
+      <v-badge color="blue" :content="4" inline>熟練</v-badge>
+      <v-badge color="blue" :content="3" inline>基本</v-badge>
+      <v-badge color="green" :content="2" inline>了解</v-badge>
+      <v-badge color="green" :content="1" inline>略懂</v-badge>
+      <v-list>
+        <v-list-item title="程式語言">
+          <v-btn v-for="item in programs" :key="item.title" variant="outlined" class="btn-space"
+            >{{ item.title }}
+            <v-badge v-if="item.skilled === 5" color="red" :content="item.skilled" inline></v-badge>
+            <v-badge v-else-if="item.skilled > 2" color="blue" :content="item.skilled" inline></v-badge>
+            <v-badge v-else color="green" :content="item.skilled" inline></v-badge> </v-btn
+        ></v-list-item>
+        <v-list-item title="框架">
+          <v-btn v-for="item in frameworks" :key="item.title" variant="outlined" class="btn-space"
+            >{{ item.title }}
+            <v-badge v-if="item.skilled === 5" color="red" :content="item.skilled" inline></v-badge>
+            <v-badge v-else-if="item.skilled > 2" color="blue" :content="item.skilled" inline></v-badge>
+            <v-badge v-else color="green" :content="item.skilled" inline></v-badge></v-btn
+        ></v-list-item>
+        <v-list-item title="伺服器">
+          <v-btn v-for="item in servers" :key="item.title" variant="outlined" class="btn-space"
+            >{{ item.title }}
+            <v-badge v-if="item.skilled === 5" color="red" :content="item.skilled" inline></v-badge>
+            <v-badge v-else-if="item.skilled > 2" color="blue" :content="item.skilled" inline></v-badge>
+            <v-badge v-else color="green" :content="item.skilled" inline></v-badge></v-btn
+        ></v-list-item>
+        <v-list-item title="資料庫">
+          <v-btn v-for="item in dbs" :key="item.title" variant="outlined" class="btn-space"
+            >{{ item.title }}
+            <v-badge v-if="item.skilled === 5" color="red" :content="item.skilled" inline></v-badge>
+            <v-badge v-else-if="item.skilled > 2" color="blue" :content="item.skilled" inline></v-badge>
+            <v-badge v-else color="green" :content="item.skilled" inline></v-badge></v-btn
+        ></v-list-item>
+      </v-list>
     </v-expansion-panel-text>
   </v-expansion-panel>
 </template>
@@ -65,7 +49,7 @@ export default {
       { title: "JavaScript", skilled: 4 },
       { title: "C#", skilled: 4 },
       { title: "C++", skilled: 4 },
-      { title: "Cordova", skilled: 3 },
+      { title: "Cordova", skilled: 4 },
       { title: "Java", skilled: 2 },
       { title: "Asp.Net(2.5~4)", skilled: 3 },
       { title: "HTML", skilled: 4 },
@@ -73,7 +57,7 @@ export default {
       { title: "Jquery", skilled: 4 },
     ],
     frameworks: [
-      { title: "Vue.js", skilled: 4 },
+      { title: "Vue.js", skilled: 5 },
       { title: "Element.io", skilled: 4 },
       { title: "Vuetify", skilled: 4 },
       { title: "Angular.io", skilled: 4 },
@@ -92,3 +76,9 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss" scoped>
+.btn-space {
+  margin: 2px;
+}
+</style>

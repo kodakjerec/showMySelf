@@ -8,7 +8,8 @@
             <v-img src="head.jpg"></v-img>
           </v-avatar>
           <div>
-            <v-card-title class="text-h5" aria-label="簡克達"> 簡克達<br />Chien Ko Ta </v-card-title>
+            <v-card-title class="text-h5" aria-label="簡克達"> 簡克達<br />Chien <span @click="gotoHomeStatus()">Ko</span> Ta
+            </v-card-title>
 
             <v-card-subtitle aria-label="自述 喜歡嘗試、很忙的工程師">喜歡嘗試、很忙的工程師</v-card-subtitle>
 
@@ -18,11 +19,13 @@
                 <v-tooltip activator="parent">eMail: kodakjerec@gmail.com</v-tooltip>
               </div>
               <div aria-label="instagram">
-                <v-btn icon="mdi-instagram" color="purple" target="_blank" href="https://www.instagram.com/kotachien/"></v-btn>
+                <v-btn icon="mdi-instagram" color="purple" target="_blank"
+                  href="https://www.instagram.com/kotachien/"></v-btn>
                 <v-tooltip activator="parent">instagram: https://www.instagram.com/kotachien/</v-tooltip>
               </div>
               <div aria-label="facebook">
-                <v-btn icon="mdi-facebook" color="blue" target="_blank" href="https://www.facebook.com/kotachien/"></v-btn>
+                <v-btn icon="mdi-facebook" color="blue" target="_blank"
+                  href="https://www.facebook.com/kotachien/"></v-btn>
                 <v-tooltip activator="parent">facebook: https://www.facebook.com/kotachien/</v-tooltip>
               </div>
             </v-card-actions>
@@ -36,5 +39,10 @@
 <script>
 export default {
   name: "selfIntroduction",
+  methods: {
+    gotoHomeStatus() {
+      this.$router.replace('/homeStatus')
+    }
+  }
 };
 </script>

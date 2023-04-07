@@ -3,7 +3,7 @@
     <v-main>
       <!-- 给应用提供合适的间距 -->
       <v-container fluid>
-        <entry />
+        <router-view />
       </v-container>
     </v-main>
   </v-app>

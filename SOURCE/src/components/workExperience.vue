@@ -6,7 +6,7 @@
         <v-list-item>
           <span class="text-grey">公司：</span><span class="text-h6">緯創 Wistron software</span><br />
           <span class="text-grey">職稱：</span><span class="text-subtitle-1">資深工程師 Senior Engineer</span><br />
-          <span class="text-grey">專案：</span><span class="text-blue text-subtitle-2">中壽新契約專案、中壽保服專案</span><br />
+          <span class="text-grey">專案：</span><span class="text-blue text-subtitle-2">中壽新契約專案、中壽保服專案、全球新系統</span><br />
           <span class="text-grey">時間：</span><span class="text-body-1">2021/9~Now</span><br />
           <v-divider></v-divider>
         </v-list-item>

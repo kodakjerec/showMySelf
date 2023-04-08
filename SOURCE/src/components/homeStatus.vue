@@ -1,5 +1,10 @@
 <template>
-    <input type="number" v-model="maxCount" @change="refreshData()">
+    <div class="d-inline-flex">
+        <v-text-field label="筆數" type="number" v-model="maxCount"></v-text-field>
+        <v-text-field label="氣溫調整" type="number" v-model="tempAdj"></v-text-field>
+        <v-text-field label="濕度調整" type="number" v-model="humiAdj"></v-text-field>
+        <v-btn color="primary" @click="refreshData()">應用</v-btn>
+    </div>
     <div class="myChart">
         <Line v-if="loading" id="my-chart-id1" :options="chartOptions" :data="chartData1" />
     </div>
@@ -41,7 +46,9 @@ export default {
     components: { Line },
     data() {
         return {
-            maxCount: 200,
+            maxCount: 50,
+            tempAdj: -10,
+            humiAdj: 20,
             loading: false,
             chartData1: {
                 labels: [],
@@ -78,6 +85,8 @@ export default {
                     let data_eCO2 = [];
                     let data_Temp = [];
                     let data_Humi = [];
+                    let data_Temp2 = [];
+                    let data_Humi2 = [];
                     let data_labels = [];
 
                     originData.map(row => {
@@ -85,7 +94,9 @@ export default {
                         data_eCO2.push(row.avg_eCO2);
                         data_Temp.push(row.avg_Temp);
                         data_Humi.push(row.avg_Humi);
-                        data_labels.push(row.time);
+                        data_Temp2.push(row.avg_Temp + Number(this.tempAdj));
+                        data_Humi2.push(row.avg_Humi + Number(this.humiAdj));
+                        data_labels.push(row.time.substring(0, 5));
                     })
                     this.chartData1.labels = data_labels;
                     this.chartData2.labels = data_labels;
@@ -106,14 +117,22 @@ export default {
                     this.chartData3.datasets = [
                         {
                             label: 'Temp',
-                            backgroundColor: '#0000FF',
+                            backgroundColor: '#D0D0FF',
                             data: data_Temp
+                        }, {
+                            label: 'adjTemp',
+                            backgroundColor: '#0000FF',
+                            data: data_Temp2
                         }]
                     this.chartData4.datasets = [
                         {
                             label: 'Humi',
-                            backgroundColor: '#005500',
+                            backgroundColor: '#D0F5D0',
                             data: data_Humi
+                        }, {
+                            label: 'adjHumi',
+                            backgroundColor: '#005500',
+                            data: data_Humi2
                         }]
                     this.loading = true;
                 })
